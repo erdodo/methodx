@@ -26,7 +26,7 @@ export async function createProject(formData: FormData) {
     }
   });
 
-  revalidatePath("/");
+  revalidatePath("/dashboard");
 }
 
 export async function createPersonnel(formData: FormData) {
@@ -40,13 +40,13 @@ export async function createPersonnel(formData: FormData) {
     data: { name, experienceLevel, tenantId: session.user.tenantId }
   });
 
-  revalidatePath("/");
+  revalidatePath("/dashboard");
 }
 
 export async function deleteProject(id: string) {
   const session = await getSession();
   await prisma.project.delete({ where: { id, tenantId: session.user.tenantId } });
-  revalidatePath("/");
+  revalidatePath("/dashboard");
 }
 
 export async function createOperation(projectId: string, lineId: string, formData: FormData) {

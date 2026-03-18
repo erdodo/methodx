@@ -29,7 +29,7 @@ export default function LoginPage() {
       setError("Giriş başarısız. Lütfen bilgilerinizi kontrol edin.");
       setLoading(false);
     } else {
-      router.push("/");
+      router.push("/dashboard");
       router.refresh();
     }
   };
